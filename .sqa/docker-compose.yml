@@ -1,0 +1,26 @@
+services:
+  essentials:
+    build:
+      args:
+        context: .
+      context: .
+      dockerfile: ./docker_essentials/aio_v4/Dockerfile.essentials
+    command: sleep 6000000
+    volumes:
+    - source: ./
+      target: /sqaaas-build
+      type: bind
+    working_dir: /sqaaas-build
+  sphinx:
+    build:
+      args:
+        context: ./WORSICA_github_io
+      context: .
+      dockerfile: ./docker_sphinx/aio_v4/Dockerfile.jenkins
+    command: sleep 6000000
+    volumes:
+    - source: ./
+      target: /sqaaas-build
+      type: bind
+    working_dir: /sqaaas-build
+version: '3.7'
