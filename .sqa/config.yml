@@ -1,0 +1,15 @@
+config:
+  credentials: []
+  project_repos: {}
+environment:
+  JPL_DOCKERSERVER: worsica/jenkins-worsica-sphinx:${GIT_BRANCH}
+  password_var: GIT_TOKEN
+  username_var: GIT_USER
+sqa_criteria:
+  qc_doc:
+    repos:
+      this_repo:
+        commands:
+        - sleep infinity
+        container: sphinx
+timeout: 600
